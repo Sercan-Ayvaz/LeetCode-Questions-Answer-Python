@@ -3,21 +3,19 @@
 Verilen bir dizede en uzun olanıns uzunluğunu bulun alt dizeyinelenen karakterler olmadan.
 
 Örnek 1:
-
 Giriş: s = "abcabcbb"
- Çıkış: 3
- Açıklama: Cevap 3 uzunluğunda "abc"dir.
+Çıkış: 3
+Açıklama: Cevap 3 uzunluğunda "abc"dir.
+
 Örnek 2:
-
 Giriş: s = "bbbbb"
- Çıkış: 1
- Açıklama: Cevap "b" olup uzunluğu 1'dir.
-Örnek 3:
+Çıkış: 1
+Açıklama: Cevap "b" olup uzunluğu 1'dir.
 
+Örnek 3:
 Giriş: s = "pwwkew"
- Çıkış: 3
- Açıklama: Cevap 3 uzunluğunda "wke"dir.
-Dikkat edin, cevap bir alt dize olmalı, "pwke" bir alt dize değil, bir alt dizidir.
+Çıkış: 3
+Açıklama: Cevap 3 uzunluğunda "wke"dir. (!)Dikkat edin, cevap bir alt dize olmalı, "pwke" bir alt dize değil, bir alt dizidir.
 """
 ########################################################################################################################
 
