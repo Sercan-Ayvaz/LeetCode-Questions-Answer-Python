@@ -1,0 +1,53 @@
+#********************************* Tekrarlanan Karakterler Olmayan En Uzun Alt Dize *********************************
+"""
+Verilen bir dizede en uzun olanıns uzunluğunu bulun alt dizeyinelenen karakterler olmadan.
+
+Örnek 1:
+
+Giriş: s = "abcabcbb"
+ Çıkış: 3
+ Açıklama: Cevap 3 uzunluğunda "abc"dir.
+Örnek 2:
+
+Giriş: s = "bbbbb"
+ Çıkış: 1
+ Açıklama: Cevap "b" olup uzunluğu 1'dir.
+Örnek 3:
+
+Giriş: s = "pwwkew"
+ Çıkış: 3
+ Açıklama: Cevap 3 uzunluğunda "wke"dir.
+Dikkat edin, cevap bir alt dize olmalı, "pwke" bir alt dize değil, bir alt dizidir.
+"""
+########################################################################################################################
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        value = []  # Tekrar etmeyen karakterleri tutan liste
+        max_length = 0  # En uzun substring uzunluğu
+
+        for item in range(len(s)):  # String üzerinde döngü
+            if s[item] not in value:
+                if len(value) == 0:
+                    value.append(s[item])
+                elif value[len(value) - 1] == s[item - 1]:
+                    value.append(s[item])
+                else:
+                    continue
+            else:  # Eğer tekrar eden bir karakter bulunursa
+                max_length = max(max_length, len(value))  # Şu anki substring'in uzunluğunu güncelle
+                value = value[value.index(s[item]) + 1:]  # Listeyi tekrar eden karakterden sonrasına kırp
+                value.append(s[item])  # Yeni karakteri ekle
+
+        max_length = max(max_length, len(value))  # Son substring için maksimum uzunluğu güncelle
+        return max_length  # Uzunluğu döndür
+
+# Örnek kullanım
+s1 = "abcabcbb"
+s2 = "bbbbb"
+s3 = "pwwkew"
+
+sln = Solution()
+print(sln.lengthOfLongestSubstring(s1))  # Çıktı: 3
+print(sln.lengthOfLongestSubstring(s2))  # Çıktı: 1
+print(sln.lengthOfLongestSubstring(s3))  # Çıktı: 3
